@@ -25,11 +25,11 @@ public class FileHandler implements Writable{
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filePath))){
             return objectInputStream.readObject();
         } catch (Exception e) {
-            ToyList<Toy> toyList = new ToyList<>();
+            ToyList<Toy> List = new ToyList<>();
             FileHandler writable = new FileHandler();
-            writable.save(toyList, filePath);
+            writable.save(List, filePath);
             System.out.println("Создано новое семейное дерево");
-            return toyList;
+            return List;
         }
     }
 }

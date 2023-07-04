@@ -24,4 +24,16 @@ public class Presenter {
     public void saveChanges() {
         model.saveChanges();
     }
+
+    public void prizeAward(){
+        model.prizeAward();
+    }
+
+    public void prizeDraw(){
+        model.prizeDraw();
+    }
+
+    public void getPrizeList(){
+        view.print(model.getPrizeList());
+    }
 }

@@ -40,4 +40,16 @@ public class ToyList<T extends ToyListInterface> implements Serializable, Iterab
     public Iterator<T> iterator() {
         return toyList.iterator();
     }
+
+    public void prizeAward(){
+
+    }
+
+    public void prizeDraw(){
+
+    }
+
+    public void getPrizeList(){
+
+    }
 }

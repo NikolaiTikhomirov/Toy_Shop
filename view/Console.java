@@ -110,4 +110,19 @@ public class Console implements View{
     public void saveChanges() {
         presenter.saveChanges();
     }
+
+    @Override
+    public void prizeAward() {
+        presenter.prizeAward();
+    }
+
+    @Override
+    public void prizeDraw() {
+        presenter.prizeDraw();
+    }
+
+    @Override
+    public void getPrizeList() {
+        presenter.getPrizeList();
+    }
 }

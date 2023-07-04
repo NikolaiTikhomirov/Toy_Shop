@@ -2,20 +2,20 @@ package view.commands;
 
 import view.View;
 
-public class GetToyList implements Command {
+public class GetPrizeList implements Command {
     private View view;
 
-    public GetToyList(View view) {
+    public GetPrizeList(View view) {
         this.view = view;
     }
 
     @Override
     public String getDescription() {
-        return "Посмотреть список игрушек (призовой фонд)";
+        return "Посмотреть очередь призов на выдачу";
     }
 
     @Override
     public void execute() {
-        view.getToyList();
+        view.getPrizeList();
     }
 }

@@ -4,17 +4,26 @@ import model.fileHandler.Writable;
 
 public class Model {
     private ToyList<Toy> toyList;
-    private String filePath;
+    private ToyList<Toy> prizeList;
+    private String toyListPath;
+    private String prizeListPath;
     private Writable writable;
 
     public Model(Writable writable) {
-        filePath = "src/tree/toyFile.txt";
+        toyListPath = "src/model/toyListPath.txt";
+        prizeListPath = "src/model/prizeListPath.txt";
         this.writable = writable;
         try {
-            toyList = (ToyList<Toy>) writable.read(filePath);
+            toyList = (ToyList<Toy>) writable.read(toyListPath);
         } catch (Exception e) {
             toyList = new ToyList<>();
-            writable.save(toyList, filePath);
+            writable.save(toyList, toyListPath);
+        }
+        try {
+            prizeList = (ToyList<Toy>) writable.read(prizeListPath);
+        } catch (Exception e) {
+            prizeList = new ToyList<>();
+            writable.save(prizeList, toyListPath);
         }
     }
 
@@ -28,6 +37,19 @@ public class Model {
     }
 
     public void saveChanges() {
-        writable.save(toyList, filePath);
+        writable.save(toyList, toyListPath);
+        writable.save(prizeList, prizeListPath);
+    }
+
+    public void prizeAward(){
+        toyList.prizeAward();
+    }
+
+    public void prizeDraw(){
+        toyList.prizeDraw();
+    }
+
+    public String getPrizeList(){
+        return prizeList.getInfo();
     }
 }

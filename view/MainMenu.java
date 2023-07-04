@@ -3,7 +3,10 @@ package view;
 import view.commands.AddToy;
 import view.commands.Command;
 import view.commands.Finish;
+import view.commands.GetPrizeList;
 import view.commands.GetToyList;
+import view.commands.PrizeAward;
+import view.commands.PrizeDraw;
 import view.commands.SaveChanges;
 
 import java.util.ArrayList;
@@ -18,6 +21,9 @@ public class MainMenu {
         commandList = new ArrayList<>();
         commandList.add(new AddToy(view));
         commandList.add(new GetToyList(view));
+        commandList.add(new GetPrizeList(view));
+        commandList.add(new PrizeDraw(view));
+        commandList.add(new PrizeAward(view));
         commandList.add(new SaveChanges(view));
         commandList.add(new Finish(view));
     }
