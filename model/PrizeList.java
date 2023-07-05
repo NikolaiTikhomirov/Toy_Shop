@@ -1,25 +1,25 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Queue;
 
 import model.PrizeList;
 
 public class PrizeList<T extends ToyListInterface> implements Serializable, Iterable<T>{
-    private List<T> toyList;
+    private Queue<T> prizeList;
 
     public PrizeList(){
-        toyList = new ArrayList<>();
+        prizeList = new ArrayDeque<>();
     }
 
     public void addToy(T toy){
-        toyList.add(toy);
+        prizeList.add(toy);
     }
 
     public T getToyByName(String name){
-        for (T toy: toyList){
+        for (T toy: prizeList){
             if (toy.getName().equals(name)){
                 return toy;
             }
@@ -29,8 +29,8 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
 
     public String getInfo(){
         StringBuilder stringBuilder = new StringBuilder();
-        for (T toy : toyList) {
-            stringBuilder.append(toy);
+        for (T toy : prizeList) {
+            stringBuilder.append(toy.getName());
             stringBuilder.append("\n");
         }
         return stringBuilder.toString();
@@ -38,7 +38,7 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
 
     @Override
     public Iterator<T> iterator() {
-        return toyList.iterator();
+        return prizeList.iterator();
     }
 
     public void prizeAward(){

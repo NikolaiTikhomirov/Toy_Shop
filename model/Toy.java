@@ -40,7 +40,7 @@ public class Toy implements Serializable, ToyListInterface{
         if (name != null) n = this.getName();
         if (frequency != null) f = String.valueOf(this.getFrequency());
         if (quantity != null) q = String.valueOf(this.getQuantity());
-        return "Имя: " + n + " Вес: " + f + " количество: " + q;
+        return "Имя: " + n + " Вес: " + f + " Количество: " + q;
     }
 
 }

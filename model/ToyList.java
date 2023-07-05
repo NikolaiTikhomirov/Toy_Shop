@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -44,6 +45,22 @@ public class ToyList<String, T extends ToyListInterface> implements Serializable
     @Override
     public Iterator<T> iterator() {
         return ((Iterable<T>) toyList).iterator();
+    }
+
+    public Toy getToy(String name){
+        return toyList.get(name);
+    }
+
+    public Collection<Toy> getValues(){
+        return toyList.values();
+    }
+
+    public void removeToy(String name){
+        toyList.remove(name);
+    }
+
+    public Integer size(){
+        return toyList.size();
     }
 
     public void prizeAward(){
