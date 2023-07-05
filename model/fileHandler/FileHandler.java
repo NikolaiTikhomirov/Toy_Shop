@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import model.ToyList;
-import model.Toy;
+import model.PrizeList;
 
 public class FileHandler implements Writable{
 
@@ -16,6 +16,7 @@ public class FileHandler implements Writable{
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath))){
             objectOutputStream.writeObject(serializable);
         } catch (Exception e) {
+            System.out.println(e);
             System.out.println("Сохранить не удалось");
         }
     }
@@ -25,11 +26,18 @@ public class FileHandler implements Writable{
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filePath))){
             return objectInputStream.readObject();
         } catch (Exception e) {
-            ToyList<Toy> List = new ToyList<>();
+            Serializable list;
+            if (filePath.contains("toy")) {
+                list = new ToyList<>();
+                System.out.println("Создан новый список игрушек");
+            }
+            else {
+                list = new PrizeList<>();
+                System.out.println("Создан новый список призов");
+            }
             FileHandler writable = new FileHandler();
-            writable.save(List, filePath);
-            System.out.println("Создано новое семейное дерево");
-            return List;
+            writable.save(list, filePath);
+            return list;
         }
     }
 }

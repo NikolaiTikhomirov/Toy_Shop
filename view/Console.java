@@ -20,16 +20,23 @@ public class Console implements View{
 
     @Override
     public void print(String text) {
-        System.out.println(text);;
+        System.out.println(text);
     }
-
+    
     @Override
     public void start() {
-        System.out.println("Доброо времени суток");;
+        System.out.println("Доброго времени суток");;
         while (work) {
             printMenu();
             execute();
         }
+    }
+    
+    @Override
+    public void finish() {
+        System.out.println("До скорых встреч");
+        scanner.close();
+        work = false;
     }
 
     @Override
@@ -57,17 +64,16 @@ public class Console implements View{
             addWork = false;
         }
     }
-
+    
     @Override
     public void getToyList() {
         presenter.getToyList();
+    
     }
 
     @Override
-    public void finish() {
-        System.out.println("До скорых встреч");
-        scanner.close();
-        work = false;
+    public void getPrizeList() {
+        presenter.getPrizeList();
     }
 
     private void printMenu(){
@@ -121,8 +127,4 @@ public class Console implements View{
         presenter.prizeDraw();
     }
 
-    @Override
-    public void getPrizeList() {
-        presenter.getPrizeList();
-    }
 }
