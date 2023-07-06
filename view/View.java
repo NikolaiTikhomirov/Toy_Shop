@@ -8,6 +8,7 @@ public interface View {
     void setPresenter(Presenter presenter);
     void addToy();
     void getToyList();
+    void getAwardedList();
     void prizeAward();
     void prizeDraw();
     void getPrizeList();

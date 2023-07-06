@@ -36,4 +36,8 @@ public class Presenter {
     public void getPrizeList(){
         view.print(model.getPrizeList());
     }
+
+    public void getAwardedList(){
+        model.getAwardedList();
+    }
 }

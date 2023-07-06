@@ -31,9 +31,13 @@ public class FileHandler implements Writable{
                 list = new ToyList<>();
                 System.out.println("Создан новый список игрушек");
             }
-            else {
+            else if (filePath.contains("prize")){
                 list = new PrizeList<>();
-                System.out.println("Создан новый список призов");
+                System.out.println("Создан новый список призов, ожидающих выдачи");
+            }
+            else {
+                list = "";
+                System.out.println("Создан новый список врученных призов");
             }
             FileHandler writable = new FileHandler();
             writable.save(list, filePath);

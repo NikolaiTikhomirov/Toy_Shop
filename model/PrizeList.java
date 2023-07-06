@@ -3,19 +3,18 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Iterator;
-import java.util.Queue;
 
 import model.PrizeList;
 
 public class PrizeList<T extends ToyListInterface> implements Serializable, Iterable<T>{
-    private Queue<T> prizeList;
+    private ArrayDeque<T> prizeList;
 
     public PrizeList(){
         prizeList = new ArrayDeque<>();
     }
 
     public void addToy(T toy){
-        prizeList.add(toy);
+        prizeList.addLast(toy);
     }
 
     public T getToyByName(String name){
@@ -29,9 +28,12 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
 
     public String getInfo(){
         StringBuilder stringBuilder = new StringBuilder();
+        Integer count = 1;
         for (T toy : prizeList) {
+            stringBuilder.append(count + ". ");
             stringBuilder.append(toy.getName());
             stringBuilder.append("\n");
+            count++;
         }
         return stringBuilder.toString();
     }
@@ -41,8 +43,8 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
         return prizeList.iterator();
     }
 
-    public void prizeAward(){
-
+    public T prizeAward(){
+        return prizeList.pollFirst();
     }
 
     public void prizeDraw(){

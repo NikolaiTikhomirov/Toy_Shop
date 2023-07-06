@@ -52,7 +52,7 @@ public class Console implements View{
             try {
                 System.out.println("Введите название игрушки");
                 String name = scanner.nextLine();
-                System.out.println("Введите частоту выпадения игрушки)");
+                System.out.println("Введите частоту выпадения игрушки");
                 Integer frequency = Integer.parseInt(scanner.nextLine());
                 System.out.println("Введите количество загружаемых игрушек");
                 Integer quantity = Integer.parseInt(scanner.nextLine());
@@ -125,6 +125,11 @@ public class Console implements View{
     @Override
     public void prizeDraw() {
         presenter.prizeDraw();
+    }
+
+    @Override
+    public void getAwardedList() {
+        presenter.getAwardedList();
     }
 
 }

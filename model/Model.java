@@ -10,26 +10,27 @@ import model.fileHandler.Writable;
 public class Model {
     private ToyList<String, Toy> toyList;
     private PrizeList<Toy> prizeList;
+    private String awardedList;
     private String toyListPath;
     private String prizeListPath;
+    private String awardedListPath;
+    private Integer countAwarded;
     private Writable writable;
 
     public Model(Writable writable) {
         toyListPath = "model/toyList.txt";
         prizeListPath = "model/prizeList.txt";
+        awardedListPath = "model/awardedList.txt";
         this.writable = writable;
-        // try {
-            toyList = (ToyList<String, Toy>) writable.read(toyListPath);
-        // } catch (Exception e) {
-        //     toyList = new ToyList<>();
-        //     writable.save(toyList, toyListPath);
-        // }
-        // try {
-            prizeList = (PrizeList<Toy>) writable.read(prizeListPath);
-        // } catch (Exception e) {
-        //     prizeList = new PrizeList<>();
-        //     writable.save(prizeList, prizeListPath);
-        // }
+        toyList = (ToyList<String, Toy>) writable.read(toyListPath);
+        prizeList = (PrizeList<Toy>) writable.read(prizeListPath);
+        awardedList = (String) writable.read(awardedListPath);
+        countAwarded = 1;
+        for (char c : awardedList.toCharArray()) {
+            if (c == '|') {
+                countAwarded++;
+            }
+        }
     }
 
     public void addToy(String name, Integer frequency, Integer quantity) {
@@ -44,10 +45,14 @@ public class Model {
     public void saveChanges() {
         writable.save(toyList, toyListPath);
         writable.save(prizeList, prizeListPath);
+        writable.save(awardedList, awardedListPath);
     }
 
     public void prizeAward(){
-        toyList.prizeAward();
+        awardedList += countAwarded + ". ";
+        awardedList += prizeList.prizeAward().getName();
+        awardedList += "|\n";
+        countAwarded ++;
     }
 
     public void prizeDraw(){
@@ -80,5 +85,9 @@ public class Model {
 
     public String getPrizeList(){
         return prizeList.getInfo();
+    }
+
+    public void getAwardedList(){
+        System.out.println(awardedList);;
     }
 }
