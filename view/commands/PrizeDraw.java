@@ -18,5 +18,4 @@ public class PrizeDraw implements Command {
     public void execute() {
         view.prizeDraw();
     }
-    
 }

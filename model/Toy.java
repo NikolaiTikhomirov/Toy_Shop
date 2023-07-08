@@ -42,5 +42,4 @@ public class Toy implements Serializable, ToyListInterface{
         if (quantity != null) q = String.valueOf(this.getQuantity());
         return "Имя: " + n + " Вес: " + f + " Количество: " + q;
     }
-
 }

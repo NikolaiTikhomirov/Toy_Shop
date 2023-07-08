@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-
 import model.ToyList;
 
 public class ToyList<String, T extends ToyListInterface> implements Serializable, Iterable<T>{
@@ -23,15 +22,6 @@ public class ToyList<String, T extends ToyListInterface> implements Serializable
             toyList.put((String) toy.getName(), toy);
         }
     }
-
-    // public T getToyByName(String name){
-    //     for (T toy: toyList){
-    //         if (toy.getName().equals(name)){
-    //             return toy;
-    //         }
-    //     }
-    //     return null;
-    // }
 
     public String getInfo(){
         StringBuilder stringBuilder = new StringBuilder();
@@ -61,17 +51,5 @@ public class ToyList<String, T extends ToyListInterface> implements Serializable
 
     public Integer size(){
         return toyList.size();
-    }
-
-    public void prizeAward(){
-
-    }
-
-    public void prizeDraw(){
-
-    }
-
-    public void getPrizeList(){
-
     }
 }

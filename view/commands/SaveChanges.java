@@ -18,5 +18,4 @@ public class SaveChanges implements Command {
     public void execute() {
         view.saveChanges();
     }
-    
 }

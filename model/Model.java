@@ -1,10 +1,7 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
-
 import model.fileHandler.Writable;
 
 public class Model {
@@ -74,6 +71,7 @@ public class Model {
             for (int i = 0; i < frequencyList.size(); i++){
                 if (x < frequencyList.get(i)){
                     res = i;
+                    break;
                 }
             }
             Toy toy = toyList.getToy(countList.get(res));

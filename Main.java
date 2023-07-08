@@ -12,8 +12,6 @@ public class Main {
         View view = new Console();
         Model model = new Model(writable);
         new Presenter(view, model);
-
         view.start();
-
     }
 }

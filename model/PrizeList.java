@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Iterator;
-
 import model.PrizeList;
 
 public class PrizeList<T extends ToyListInterface> implements Serializable, Iterable<T>{
@@ -15,15 +14,6 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
 
     public void addToy(T toy){
         prizeList.addLast(toy);
-    }
-
-    public T getToyByName(String name){
-        for (T toy: prizeList){
-            if (toy.getName().equals(name)){
-                return toy;
-            }
-        }
-        return null;
     }
 
     public String getInfo(){
@@ -45,13 +35,5 @@ public class PrizeList<T extends ToyListInterface> implements Serializable, Iter
 
     public T prizeAward(){
         return prizeList.pollFirst();
-    }
-
-    public void prizeDraw(){
-
-    }
-
-    public void getPrizeList(){
-
     }
 }

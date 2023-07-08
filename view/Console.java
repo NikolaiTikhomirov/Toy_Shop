@@ -131,5 +131,4 @@ public class Console implements View{
     public void getAwardedList() {
         presenter.getAwardedList();
     }
-
 }

@@ -18,5 +18,4 @@ public class PrizeAward implements Command {
     public void execute() {
         view.prizeAward();
     }
-    
 }
